@@ -25,11 +25,11 @@ For detailed implementation of each component:
 
 ### Key Implementation Steps
 
-1. **Query Sanitization & Security**  
+1. **Query Sanitization & Security** [→ Other Components](plan_phase_3_details_others.md)  
    - Strip PII using regex patterns (credit cards, emails) before processing[7]  
    - Validate against SQL injection patterns in expanded queries[8]
 
-2. **Intent Classification**  
+2. **Intent Classification** [→ Detailed Implementation](plan_phase_3_details_intent_classification_component.md)  
    Use quantized LLaMA-3-8B model for:
 
    ```python
@@ -38,7 +38,7 @@ For detailed implementation of each component:
        temperature=0.2)
    ```
 
-3. **Query Expansion**  
+3. **Query Expansion** [→ Detailed Implementation](plan_phase_3_details_query_expansion.md)  
    Generate synonyms and related terms using Claude Instant:
 
    ```yaml
@@ -47,7 +47,7 @@ For detailed implementation of each component:
      "wireless headphones": ["Bluetooth 5.3", "ANC", "30hr battery"]
    ```
 
-4. **Hybrid Query Construction**  
+4. **Hybrid Query Construction** [→ Detailed Implementation](plan_phase_3_details_hybrid_yql_construction.md)  
    Build Vespa YQL combining:
 
    ```sql
