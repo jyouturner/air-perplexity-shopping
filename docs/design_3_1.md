@@ -42,19 +42,54 @@ graph TD
 **Implementation:**
 
 ```python
+from typing import Dict, List
+import redis
+from vespa.application import Vespa
+
 class LLMQueryProcessor:
-    def process(self, query: str) -> dict:
-        # Use LLM (e.g., GPT-4) for query decomposition
-        structured_query = llm.generate(f"""
-            Convert to Vespa YQL: "{query}"
-            Output format: {{"yql": "...", "filters": [...]}}
-        """)
-        return {
-            "yql": structured_query['yql'],
-            "ranking": "dynamic_hybrid",
-            "input.query(weights)": self._calculate_weights(query)
+    def __init__(self, vespa_app: Vespa, cache_client: redis.Redis):
+        self.vespa_app = vespa_app
+        self.cache = cache_client
+        self.cache_ttl = 3600  # 1 hour
+
+    def process(self, query: str) -> Dict:
+        # Check cache first
+        cache_key = f"query:{hash(query)}"
+        if cached := self.cache.get(cache_key):
+            return cached
+
+        # Use LLM for query understanding
+        structured_query = self._generate_structured_query(query)
+        
+        # Cache the result
+        self.cache.setex(cache_key, self.cache_ttl, structured_query)
+        
+        return structured_query
+
+    def _generate_structured_query(self, query: str) -> Dict:
+        # Use LLM to parse query into structured format
+        context = {
+            "price_range": self._extract_price_range(query),
+            "categories": self._extract_categories(query),
+            "attributes": self._extract_attributes(query)
         }
-```
+        
+        return {
+            "yql": self._build_yql(context),
+            "ranking": "llm_enhanced",
+            "timeout": "1.0s"
+        }
+
+    def _build_yql(self, context: Dict) -> str:
+        filters = []
+        if context["price_range"]:
+            filters.append(f"price_usd BETWEEN {context['price_range'][0]} AND {context['price_range'][1]}")
+        
+        return f"""
+            SELECT * FROM product 
+            WHERE {' AND '.join(filters)}
+            ORDER BY llm_relevance() DESC;
+        """
 
 *Key Benefit*: Enables natural language queries like "Find patio furniture under $500 with quick delivery" → automatic YQL generation with price/delivery filters[5][20]
 
@@ -62,16 +97,32 @@ class LLMQueryProcessor:
 
 ### 2. **Hybrid Ranking with LLM Features**
 
-```schema
-rank-profile llm_enhanced {
-  function llm_relevance() {
-    expression: attribute(llm_quality_score) * 0.3 + 
-               query_contextual_match(query_embedding) * 0.7
-  }
-  
-  first-phase {
-    expression: llm_relevance + commercial_priority
-  }
+```yaml
+schema product {
+    field llm_quality_score type float {
+        indexing: attribute
+        attribute: fast-search
+    }
+    
+    field semantic_embedding type tensor<float>(x[384]) {
+        indexing: attribute | index
+        attribute {
+            distance-metric: angular
+        }
+    }
+    
+    rank-profile llm_enhanced inherits default {
+        function llm_relevance() {
+            expression: 0.3 * attribute(llm_quality_score) + 
+                       0.7 * closeness(field, semantic_embedding)
+        }
+        
+        first-phase {
+            expression: llm_relevance
+        }
+        
+        match-features: llm_relevance
+    }
 }
 ```
 
@@ -155,10 +206,10 @@ def update_trend_scores():
 
 | Aspect                 | Strategy                          | Target Metrics                 |
 |------------------------|-----------------------------------|--------------------------------|
-| Latency                | Edge-cached LLM responses         | P95 < 200ms                    |
-| Accuracy               | RAG pattern with Vespa as ground truth | Hallucination rate <2%[8][23] |
-| Cost                   | Smaller models for frequent tasks | $0.0001/query                 |
-| Freshness              | Daily trend score updates         | <24h market reflection        |
+| Latency                | Redis cache + quantized models    | P95 < 150ms                   |
+| Cache Hit Rate         | Semantic caching with TTL         | >70% for common queries       |
+| Cost per Query        | Batched inference, model sharing | $0.00005/query                |
+| Model Update Frequency | Weekly fine-tuning               | <7 days for market changes    |
 
 ---
 
