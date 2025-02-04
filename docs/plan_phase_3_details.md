@@ -92,9 +92,7 @@ If primary LLM fails:
 This implementation balances accuracy (97% recall@100 in benchmarks[4]) with strict latency SLAs (<250ms P95). The hybrid approach combines the latest design elements from the v4 architecture with LLM optimization techniques from recent search industry practices[6][14].
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8ca4ef3b-691b-43a0-8ce2-787dc14011dc/design_4_1.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/2b5ce2d1-fa90-4a8c-9ac2-5c6e3c9fa462/plan.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/f500974b-8539-44ae-94eb-d971fe776837/plan_phase_3.md>
+
 [4] <https://towardsdev.com/tutorial-using-large-language-models-llms-to-reverse-engineer-and-optimize-backend-code-def1fba3bb74?gi=0de4f8db820e>
 [5] <https://spotintelligence.com/2024/04/03/query-understanding/>
 [6] <https://haystackconf.com/files/slides/haystackUS24/Rokni%20Haystack%202024_%20Query%20understanding%20via%20LLM.pdf>

@@ -184,10 +184,7 @@ gantt
 This implementation plan combines the structured approach from design_3 with the LLM enhancements from design_4/4_1, while incorporating security best practices from the search results. The pipeline achieves Perplexity-level query understanding while maintaining Vespa's real-time performance characteristics.
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/fa16293a-9e62-4bcf-8479-31e1664ecbb5/design_3.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/be33fcd1-aaf0-4556-8c93-798b85d1dfd3/design_4_1.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/0299c29b-2ab4-4dd7-9173-d646e0eb812c/design_4.md>
-[4] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/e2020faa-5542-4d6c-b8bb-6b1377801b7d/design_3_1.md>
+
 [5] <https://www.k2view.com/blog/llm-text-to-sql/>
 [6] <https://blog.langchain.dev/query-transformations/>
 [7] <https://skimai.com/top-5-llm-api-integration-strategies-and-best-practices-for-enterprise-ai/>

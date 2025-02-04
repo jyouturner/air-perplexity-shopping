@@ -179,4 +179,3 @@ labels:
 | Vespa Cluster   | $6,500       | Reserved instances            |
 | LLM Cache       | $1,200       | Tiered storage                |
 
----

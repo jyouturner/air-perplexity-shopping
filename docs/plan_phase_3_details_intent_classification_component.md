@@ -188,9 +188,7 @@ For further optimization:
 3. Enable dynamic temperature adjustment based on confidence scores
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8ca4ef3b-691b-43a0-8ce2-787dc14011dc/design_4_1.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/2b5ce2d1-fa90-4a8c-9ac2-5c6e3c9fa462/plan.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/f500974b-8539-44ae-94eb-d971fe776837/plan_phase_3.md>
+
 [4] <https://huggingface.co/SweatyCrayfish/llama-3-8b-quantized>
 [5] <https://encord.com/blog/meta-releases-llama-3/>
 [6] <https://www.restack.io/p/intent-recognition-answer-llama-text-classification-cat-ai>

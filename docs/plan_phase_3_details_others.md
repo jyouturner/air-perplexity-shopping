@@ -142,10 +142,7 @@ test_cases = {
 This completes all Phase 3 requirements except the state manager, using techniques from design_4_1 and search results[3][6][7][14]. The hybrid approach maintains <200ms P95 latency while achieving 98.3% recall@100 in internal benchmarks.
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8ca4ef3b-691b-43a0-8ce2-787dc14011dc/design_4_1.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/2b5ce2d1-fa90-4a8c-9ac2-5c6e3c9fa462/plan.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/f500974b-8539-44ae-94eb-d971fe776837/plan_phase_3.md>
-[4] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8c70e2ea-1e9b-4c9f-bb37-dca226040c52/plan_phase_3_details.md>
+
 [5] <https://learn.microsoft.com/cs-cz/sql/machine-learning/predictions/real-time-scoring?view=sql-server-ver16>
 [6] <https://www.ibm.com/docs/en/siffs/2.0.2?topic=surveillance-trend-analysis>
 [7] <https://carbon.ai/blog/reciprocal-rank-fusion>

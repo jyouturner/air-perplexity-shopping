@@ -170,10 +170,7 @@ response = vespa_session.query(
 This implementation achieves 97% recall@100 while maintaining <250ms P95 latency, as per design_4_1 benchmarks[1][4]. The hybrid approach balances traditional search with LLM-enhanced ranking following Perplexity's search architecture best practices[6][10].
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8ca4ef3b-691b-43a0-8ce2-787dc14011dc/design_4_1.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/2b5ce2d1-fa90-4a8c-9ac2-5c6e3c9fa462/plan.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/f500974b-8539-44ae-94eb-d971fe776837/plan_phase_3.md>
-[4] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/8c70e2ea-1e9b-4c9f-bb37-dca226040c52/plan_phase_3_details.md>
+
 [5] <https://www.restack.io/p/vespa-answer-yql-cat-ai>
 [6] <https://pyvespa.readthedocs.io/en/latest/getting-started-pyvespa-cloud.html>
 [7] <https://pyvespa.readthedocs.io/en/latest/getting-started-pyvespa.html>

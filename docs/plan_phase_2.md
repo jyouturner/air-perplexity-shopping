@@ -211,10 +211,7 @@ def handle_failed_update(error):
 This plan addresses the key challenges identified in the search results while maintaining compatibility with all design versions. The dual webhook approach combined with origin tracking solves the inventory update loop problem, while the LLM integration follows design_3_1's recommendation for trend-aware ranking.
 
 Citations:
-[1] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/fa16293a-9e62-4bcf-8479-31e1664ecbb5/design_3.md>
-[2] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/be33fcd1-aaf0-4556-8c93-798b85d1dfd3/design_4_1.md>
-[3] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/0299c29b-2ab4-4dd7-9173-d646e0eb812c/design_4.md>
-[4] <https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/22999360/e2020faa-5542-4d6c-b8bb-6b1377801b7d/design_3_1.md>
+
 [5] <https://hookdeck.com/webhooks/platforms/how-create-shopify-webhooks-with-shopify-api-tutorial>
 [6] <https://www.accentuate.io/blogs/wiki/mastering-shopify-product-update-webhooks>
 [7] <https://www.accentuate.io/blogs/wiki/how-to-set-up-webhook-on-shopify>
