@@ -1,4 +1,3 @@
-
 # AI-Powered Shopping Backend Architecture (Final)
 
 **Version**: 4.0  
@@ -10,8 +9,9 @@ design achieves Perplexity-level shopping intelligence by combining Vespa's real
 ---
 
 ## 1. Enhanced Architecture Diagram with LLM
-```
-graph TD
+
+```mermaid
+flowchart TD
     A[User Query] --> B{API Gateway}
     B --> C[LLM Query Processor]
     C --> D[Vespa Query API]
@@ -20,8 +20,8 @@ graph TD
     subgraph Vespa Cluster
         E --> F[Enriched Product Schema]
         E --> G[Hybrid Index]
-            G --> H[Vector HNSW]
-            G --> I[Text Inverted]
+        G --> H[Vector HNSW]
+        G --> I[Text Inverted]
         E --> J[LLM Features Store]
         E --> K[Dynamic Ranking]
     end
@@ -33,13 +33,13 @@ graph TD
     E --> P[Response Formatter]
     P --> Q[Client]
 
-    classDef vespa fill:#e1f5fe,stroke:#039be5;
-    classDef llm fill:#f0f4c3,stroke:#c0ca33;
-    classDef data fill:#dcedc8,stroke:#689f38;
+    classDef vespa fill:#e1f5fe,stroke:#039be5
+    classDef llm fill:#f0f4c3,stroke:#c0ca33
+    classDef data fill:#dcedc8,stroke:#689f38
     
-    class E,F,G,H,I,J,K vespa;
-    class C,M,N llm;
-    class L,O data;
+    class E,F,G,H,I,J,K vespa
+    class C,M,N llm
+    class L,O data
 ```
 
 ---
