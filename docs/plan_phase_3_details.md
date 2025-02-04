@@ -17,12 +17,6 @@ H --> I[Vespa Query Execution]
 I --> J[Response Generation]
 ```
 
-For detailed implementation of each component:
-- Intent Classification: [Implementation Details](plan_phase_3_details_intent_classification_component.md)
-- Query Expansion: [Implementation Details](plan_phase_3_details_query_expansion.md)
-- YQL Construction: [Implementation Details](plan_phase_3_details_hybrid_yql_construction.md)
-- Other Components: [Implementation Details](plan_phase_3_details_others.md)
-
 ### Key Implementation Steps
 
 1. **Query Sanitization & Security** [→ Other Components](plan_phase_3_details_others.md)  
