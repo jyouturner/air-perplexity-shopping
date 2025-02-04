@@ -1,4 +1,3 @@
-
 # Perplexity-Style Shopping Backend Architecture (Final)
 
 **Version**: 3.0  
@@ -8,7 +7,7 @@
 ---
 
 ## 1. Optimized Architecture Diagram  
-```
+```mermaid
 graph TD
     A[Shopify] -->|Product Data Sync| B(Vespa Content Cluster)
     C[User Query] --> D{API Gateway}
