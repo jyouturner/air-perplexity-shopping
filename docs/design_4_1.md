@@ -42,7 +42,7 @@ flowchart TD
 
 ## 2. Unified Product Schema (v4)
 
-```
+```yaml
 schema product {
   document product {
     # Core Fields
@@ -97,7 +97,7 @@ schema product {
 ## 3. LLM Integration Layer
 
 ### 3.1 Query Processing Flow
-```
+```python
 def process_query(query):
     # Step 1: Intent recognition
     intent = llm.classify_intent(query)
@@ -122,7 +122,7 @@ def process_query(query):
 ```
 
 ### 3.2 Performance-Cost Balance
-```
+```yaml
 llm_optimization:
   model_versions:
     - small: "gpt-3.5-turbo" # 70% queries
@@ -139,7 +139,7 @@ llm_optimization:
 ## 4. Hybrid Search Configuration
 
 ### 4.1 Index Settings
-```
+```yaml
 content:
   tuning:
     search:
@@ -163,7 +163,7 @@ content:
 ## 5. Commerce Features
 
 **Real-Time Inventory**:
-```
+```python
 def update_inventory(product_id, delta):
     vespa.update(
         id=product_id,
@@ -175,7 +175,7 @@ def update_inventory(product_id, delta):
 ```
 
 **Dynamic Pricing**:
-```
+```sql
 UPDATE product SET 
     price = base_price * demand_multiplier
 WHERE 
@@ -186,7 +186,7 @@ WHERE
 
 ## 6. Security & Compliance
 
-```
+```yaml
 access_control:
   roles:
     - reader: query-only
@@ -207,7 +207,7 @@ compliance:
 ## 7. Deployment Architecture
 
 **AWS Infrastructure**:
-```
+```yaml
 us-east-1
 ├── Vespa Content (r6i.8xlarge)
 ├── LLM Service (g5.8xlarge)
@@ -235,14 +235,14 @@ us-east-1
 ## 9. Monitoring & Alerting
 
 **Critical Metrics**:
-```
+```prometheus
 vespa_content_proton_ready_documents{type="product"}
 vespa_container_http_requests{status="200"}
 llm_api_latency_seconds{quantile="0.95"}
 ```
 
 **Alert Conditions**:
-```
+```yaml
 alert: HighLLMLatency
 expr: llm_api_latency_seconds{service="query"} > 0.5
 for: 5m
