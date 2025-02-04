@@ -1,5 +1,3 @@
-Here's a properly formatted README.md template for your Vespa-powered shopping backend project, corrected from the search results and optimized for GitHub:
-
 # Vespa-Powered Shopping Backend
 
 ## Overview
