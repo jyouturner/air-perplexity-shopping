@@ -11,6 +11,34 @@ The observation about the absence of LLMs (Large Language Models) in the current
 API Gateway → LLM Query Processor → Vespa
 ```
 
+```mermaid
+graph TD
+    A[User Query] --> B{API Gateway}
+    B --> C[Vespa Query API]
+    C --> D[Vespa Content Cluster]
+    
+    subgraph Vespa Cluster
+        D --> E[Enriched Product Schema]
+        D --> F[Hybrid Index]
+            F --> G[Vector HNSW]
+            F --> H[Text Inverted]
+        D --> I[Attribute Store]
+        D --> J[Dynamic Ranking Profile]
+    end
+    
+    K[Shopify] -->|Real-time Product Sync| D
+    J --> L[Response Formatter]
+    L --> M[Client]
+
+    classDef vespa fill:#e1f5fe,stroke:#039be5;
+    classDef external fill:#f0f4c3,stroke:#c0ca33;
+    classDef process fill:#f8bbd0,stroke:#e91e63;
+    
+    class D,E,F,G,H,I,J vespa;
+    class K,A,M external;
+    class B,C,L process;
+```
+
 **Implementation:**
 
 ```python
